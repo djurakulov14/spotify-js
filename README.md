@@ -10,10 +10,11 @@
 
 # last but not least my app is working with fake API
 
-## white some commands on terminal
+## white some commands on terminal before start testing
 
-1.npm i
-2.npm start
+1. npm i
+
+2. npm start
 
 
 # Telegram
