@@ -10,7 +10,7 @@
 
 
 # Telegram
-[@ravshanov021](https://t.me/ravshanov021)
+[@sard0r_js](https://t.me/sard0r_js)
 
 # Instagram
-[daler.sharifkulov](https://www.instagram.com/daler.sharifkulov/)
+[djuraku1ov](https://www.instagram.com/djuraku1ov/)
