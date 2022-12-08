@@ -9,6 +9,10 @@ const reloadAside = () => {
     let search = document.createElement('div')
     let library = document.createElement('div')
 
+    let homeLink = document.createElement('a')
+    let searchLink = document.createElement('a')
+    let libraryLink = document.createElement('a')
+
     let homeIcon = document.createElement('img')
     let searchIcon = document.createElement('img')
     let libraryIcon = document.createElement('img')
@@ -31,6 +35,10 @@ const reloadAside = () => {
     homeIcon.src = '../images/Home.svg'
     searchIcon.src = '../images/Search.svg'
     libraryIcon.src = '../images/Library.svg'
+
+    homeLink.href = '../index.html'
+    searchLink.href = '#'
+    libraryLink.href = '#'
 
     let createPlaylist = document.createElement('div')
     let liked = document.createElement('div')
@@ -61,11 +69,15 @@ const reloadAside = () => {
     liked.append(blockForIconlike, likedText)
     bot.append(createPlaylist, liked)
     
-
     home.append(homeIcon, homeText)
     search.append(searchIcon, searchText)
     library.append(libraryIcon, libraryText)
-    top.append(home, search, library)
+    
+    homeLink.append(home)
+    searchLink.append(search)
+    libraryLink.append(library)
+
+    top.append(homeLink, searchLink, libraryLink)
     nav.append(top, bot)
     aside.append(nav)
 }

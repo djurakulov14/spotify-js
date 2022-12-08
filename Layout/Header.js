@@ -23,10 +23,10 @@ const reloadHeader = (info) => {
     prev.append(nextPrevIcon)
     next.append(nextPrevIcon2)
 
-    nextPrevIcon.src = './images/arrow.svg'
-    nextPrevIcon2.src = './images/arrow.svg'
+    nextPrevIcon.src = '../images/arrow.svg'
+    nextPrevIcon2.src = '../images/arrow.svg'
     ava.src = info.ava
-    dropDownBtn.src = './images/dropDown.svg'
+    dropDownBtn.src = '../images/dropDown.svg'
 
     accountName.innerHTML = info.name
 
@@ -34,5 +34,5 @@ const reloadHeader = (info) => {
     account.append(ava, accountName, dropDownBtn)
     header.append(nextPrevBtns, account)
 }
-    
+
 export {reloadHeader};

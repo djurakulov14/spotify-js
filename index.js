@@ -34,6 +34,10 @@ const reloadPlaylist = (arr) => {
 
         box.append(img, title)
         forPLaylist.append(box)
+
+        box.onclick = () => {
+            window.location.assign(`../pages/PlaylistPage.html?id=${item.id}`)
+        }
     }
 
     for (let item of arr) {
