@@ -25,11 +25,11 @@ const reloadInfo = (arr) => {
     mainInfo.innerHTML = ""
 
     mainInfo.innerHTML = `
-        <img src="${ arr.img.lenght >= 1 ? "." + arr.img[0] : arr.img[0]}"/>
+        <img src="${ arr.img[0].includes('images') ? "." + arr.img[0] : arr.img[0]}"/>
         <div class="info">
             <p>PUBLIC PLAYLIST</p>
             <h1>${arr.title}</h1>
-            <p>${arr.isFromSpoti ? 'Made for ' + "<b>" + arr.creator + "</b>" : 'Made by ' + arr.creator}</p>
+            <p>${arr.isFromSpoti ? 'Made for ' + "<b>" + arr.creator + "</b>" : 'Made by ' + "<b>" + arr.creator + "</b>"} - ${arr.total} songs</p>
         </div>
     `
 }
