@@ -1,6 +1,6 @@
 const header = document.querySelector('header')
 
-const reloadHeader = () => {
+const reloadHeader = (info) => {
     let nextPrevBtns = document.createElement('div')
     let next = document.createElement('button')
     let prev = document.createElement('button')
@@ -25,14 +25,14 @@ const reloadHeader = () => {
 
     nextPrevIcon.src = './images/arrow.svg'
     nextPrevIcon2.src = './images/arrow.svg'
-    ava.src = './images/chelik.png'
+    ava.src = info.ava
     dropDownBtn.src = './images/dropDown.svg'
 
-    accountName.innerHTML = 'sardor'
+    accountName.innerHTML = info.name
 
     nextPrevBtns.append(prev, next)
     account.append(ava, accountName, dropDownBtn)
     header.append(nextPrevBtns, account)
 }
-
+    
 export {reloadHeader};
