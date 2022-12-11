@@ -38,4 +38,15 @@
             }
         }
     }
+    .tracks {
+        .track{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
 }
