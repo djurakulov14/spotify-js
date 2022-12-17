@@ -1,16 +1,17 @@
 import { reloadHeader } from "../Layout/Header.js";
-import { reloadAside } from "../Layout/Aside.js";
 import { reloadleftAside } from "../Layout/LeftAside.js";
 import { reloadTrack } from "../Layout/_child/Track.js";
+
+let mainInfo = document.querySelector('.mainInfo')
+let tracks = document.querySelector('.forTracks')
+let searchBox = document.querySelector('.inpBox')
+
 const url = "http://localhost:7777/"
 let id = window.location.href.split('=').at(-1)
-let mainInfo = document.querySelector('.mainInfo')
-let tracks = document.querySelector('.tracks')
+let setSearchBox = false
 let total = 0
 
 reloadleftAside()
-reloadAside()
-
 
 axios.get(url + "user")
     .then(res => {
@@ -22,14 +23,12 @@ axios.get(`${url}tracks?playlistID=${id}`)
         reloadTrack(res.data, tracks)
         for(let i = 0; i < res.data.length; i++) {
             total++
-            console.log(total);
         }
     })
     
 axios.get(url + "playlists/" + id)
     .then(res => {
         reloadInfo(res.data)
-        console.log(res.data);
     })
     
 const reloadInfo = (arr) => {
@@ -43,4 +42,15 @@ const reloadInfo = (arr) => {
             <p>${arr.isFromSpoti ? 'Made for ' + "<b>" + arr.creator + "</b>" : 'Made by ' + "<b>" + arr.creator + "</b>"} - ${total} songs</p>
         </div>
     `
+}
+
+searchBox.children[0].onclick = () => {
+    searchBoxOpen()
+}
+
+
+
+function searchBoxOpen () {
+    searchBox.classList.toggle('active')
+
 }

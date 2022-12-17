@@ -6,6 +6,10 @@
     color: white;
 }
 
+body::-webkit-scrollbar {
+	width: 0;
+}
+
 .playlist {
     position: relative;
 	left: 18%;
@@ -38,14 +42,166 @@
             }
         }
     }
-    .tracks {
-        .track{
+    .tracksWrapper {
+        margin-top: 30px;
+        padding-top: 30px;
+        .btns {
+            margin-bottom: 30px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            img {
-                width: 70px;
+            .left {
+                display: flex;
+                align-items: center;
+                gap: 35px;
+                .playPause {
+                    background: #65D36E;
+                    width: 72px;
+                    height: 72px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 999px;
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .right {
+                display: flex;
+                align-items: center;
+                gap: 38px;
+                .inpBox {
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    transition: .3s ease;
+                    input {
+                        width: 0;
+                        border: none;
+                        background-color: transparent;
+                        outline: none;
+                        transition: .3s ease;
+                    }
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+                .active {
+                    background-color: #ffffff30;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    transition: .3s ease;
+                    input {
+                        border: none;
+                        background-color: transparent;
+                        outline: none;
+                        width: 150px;
+                        transition: .3s ease;
+                    }
+                }
+            }
+        }
+
+        .tracks {
+            .tHead {
+                height: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #666666;
+                padding: 10px;
+                padding-right: 50px;
+                margin-bottom: 10px;
+                p, span {
+                    color: #B3B3B3;
+                    font-weight: 450;
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+                .fr {
+                    display: flex;
+                    gap: 30px;
+                }
+            }
+            .track{
                 height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                padding-right: 50px;
+                border-radius: 5px;
+
+                &:hover {
+                    color: #FFFFFF;
+                    background-color: #ffffff30;
+                }
+                .like {
+                    position: absolute;
+                    right: 12%;
+                }
+                .more {
+                    position: absolute;
+                    right: 4%;
+                }
+                .album {
+                    font-weight: 450;
+                    font-size: 18px;
+                    line-height: 23px;
+                    color: #B3B3B3;
+                    position: absolute;
+                    left: 50%;
+                    z-index: 1;
+                }
+                .duration {
+                    font-weight: 450;
+                    font-size: 18px;
+                    line-height: 23px;
+                    color: #B3B3B3;
+                }
+                .fr {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    .titleNartist {
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+    
+                    }
+                    p {
+                        font-weight: 450;
+                        font-size: 20px;
+                        line-height: 25px;
+                        letter-spacing: 0.01em;
+                        color: #FFFFFF;
+                    }
+                    span {
+                        font-weight: 450;
+                        font-size: 18px;
+                        line-height: 23px;
+                        color: #B3B3B3;
+                    }
+                    img {
+                        // position: absolute;
+                        // z-index: 2;
+                        // left: 5%;
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
             }
         }
     }

@@ -1,10 +1,18 @@
 const aside = document.querySelector('aside')
 
-const reloadAside = () => {
+
+
+axios.get("http://localhost:7777/" + "playlists")
+    .then(res => {
+            reloadAside(res.data.filter(item => item.isFromSpoti == false))
+        })
+
+const reloadAside = (arr) => {
     let nav = document.createElement('nav')
     let top = document.createElement('div')
     let bot = document.createElement('div')
-
+    let underNav = document.createElement('div')
+    
     let home = document.createElement('div')
     let search = document.createElement('div')
     let library = document.createElement('div')
@@ -16,15 +24,26 @@ const reloadAside = () => {
     let homeIcon = document.createElement('img')
     let searchIcon = document.createElement('img')
     let libraryIcon = document.createElement('img')
-
+    
     let homeText = document.createElement('span')
     let searchText = document.createElement('span')
     let libraryText = document.createElement('span')
 
+    for(let item of arr){
+        let playlist = document.createElement('a')
+        playlist.classList.add("navPlaylist")
+        playlist.innerHTML = item.title
+        underNav.append(playlist)
+
+        playlist.onclick = () => {
+            window.location.assign(`../pages/PlaylistPage.html?id=${item.id}`)
+        }
+    }
     homeText.innerHTML = 'Home'
     searchText.innerHTML = 'Search'
     libraryText.innerHTML = 'Your Library'
 
+    underNav.classList.add('underNav')
     top.classList.add('top')
     bot.classList.add('bot')
 
@@ -78,8 +97,8 @@ const reloadAside = () => {
     libraryLink.append(library)
 
     top.append(homeLink, searchLink, libraryLink)
-    nav.append(top, bot)
+    nav.append(top, bot, underNav)
     aside.append(nav)
+
 }
 
-export { reloadAside };

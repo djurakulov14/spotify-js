@@ -17,8 +17,38 @@
         <div class="mainInfo">
             
         </div>
-        <div class="tracks">
-            
+        <div class="tracksWrapper">
+            <div class="btns">
+                <div class="left">
+                    <div class="playPause">
+                        <img src="../images/play.svg">
+                    </div>
+                    <img src="../images/like.svg">
+                    <img src="../images/download.svg">
+                    <img src="../images/3tochka.svg">
+                </div>
+                <div class="right">
+                    <div class="inpBox">
+                        <img src="../images/Search.svg" alt="">
+                        <input type="text" id="searchinPL" placeholder="Search in playlist" name="inp">
+                    </div>
+                    <div class="customOrder">
+                        <span>Custom order</span>
+                        <img src="../images/dropDown.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="tracks">
+                <div class="tHead">
+                    <div class="fr">
+                        <span>#</span>
+                        <span>TITLE</span>
+                    </div>
+                    <p>ALBUM</p>
+                    <img src="../images/clock.svg" alt="">
+                </div>
+                <div class="forTracks"></div>
+            </div>
         </div>
     </div>
 
@@ -27,5 +57,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module" src="./PlaylistPage.js"></script>
+<script src="../Layout/Aside.js"></script>
 </body>
 </html>

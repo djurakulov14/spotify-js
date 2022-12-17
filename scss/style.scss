@@ -6,6 +6,9 @@
     color: white;
 }
 
+body::-webkit-scrollbar {
+	width: 0;
+}
 
 header {
 	display: flex;
@@ -71,7 +74,6 @@ aside {
 	background-color: black;
 	padding:30px 20px;
     nav {
-        border-bottom: 1px solid #282828;
         padding-bottom: 20px;
         .top {
             display: flex;
@@ -96,7 +98,9 @@ aside {
             flex-direction: column;
             align-items: flex-start;
             gap: 20px;
-            .create {
+        	border-bottom: 1px solid #282828;
+			padding-bottom: 30px;
+			.create {
                 div {
                     background-color: #ffffff90;
                     width: 32px;
@@ -137,6 +141,21 @@ aside {
                 }
             }
         }
+		.underNav {
+			padding-top: 20px;
+			a {
+				font-weight: 450;
+				font-size: 18px;
+				line-height: 23px;
+				color: #B3B3B3;
+				transition: .1s ease;
+				cursor: pointer;
+				&:hover {
+					color: white;
+					text-decoration: underline;
+				}
+			}
+		}
     }
 }
 
