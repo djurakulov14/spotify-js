@@ -22,6 +22,34 @@ header {
 	padding: 20px 40px;
 	z-index: 10;
 	transition: .5s ease;
+	.headserch {
+		width: 30%;
+		height: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+		background: #FFFFFF;
+		border-radius: 26px;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		padding: 5px 10px;
+		img {
+			height:25px;
+			filter:invert(1);
+		}
+		input {
+			border: none;
+			outline: none;
+			width: 100%;
+			color: black;
+			font-weight: 450;
+			font-size: 18px;
+			line-height: 23px;
+		}
+	}
 	.nextPrevBtns {
 		display: flex;
 		align-items: center;

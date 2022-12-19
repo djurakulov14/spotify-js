@@ -20,10 +20,10 @@ axios.get(url + "user")
     
 axios.get(`${url}tracks?playlistID=${id}`)
     .then(res => {
-        reloadTrack(res.data, tracks)
         for(let i = 0; i < res.data.length; i++) {
             total++
         }
+        reloadTrack(res.data, tracks)
     })
     
 axios.get(url + "playlists/" + id)

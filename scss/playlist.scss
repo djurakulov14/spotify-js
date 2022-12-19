@@ -7,7 +7,7 @@
 }
 
 body::-webkit-scrollbar {
-	width: 0;
+	width: 0px;
 }
 
 .playlist {
@@ -162,7 +162,7 @@ body::-webkit-scrollbar {
                     line-height: 23px;
                     color: #B3B3B3;
                     position: absolute;
-                    left: 50%;
+                    left: 47%;
                     z-index: 1;
                 }
                 .duration {

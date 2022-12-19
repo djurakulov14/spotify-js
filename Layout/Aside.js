@@ -56,7 +56,7 @@ const reloadAside = (arr) => {
     libraryIcon.src = '../images/Library.svg'
 
     homeLink.href = '../index.html'
-    searchLink.href = '#'
+    searchLink.href = '../pages/SearchPage.html'
     libraryLink.href = '#'
 
     let createPlaylist = document.createElement('div')

@@ -59,7 +59,7 @@ const reloadTrack = (arr, place) => {
         }
 
         like.onclick = () => {
-            axios.post(`${url}tracks?id=${item.id}`, {
+            axios.patch(`${url}tracks?id=${item.id}`, {
                 isLiked: item.isLiked ? false : true
             }).then(res => console.log(res))
         }

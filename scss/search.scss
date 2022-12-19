@@ -1,0 +1,82 @@
+
+body {
+    background-color: #121212;
+
+}
+.searched {
+    background-color: #121212;
+    position: relative;
+    height: fit-content;
+	left: 18%;
+	top: 80px;
+	width: 64%;
+	padding: 40px;
+	.track{
+		height: 70px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px;
+		padding-right: 50px;
+		border-radius: 5px;
+
+		&:hover {
+			color: #FFFFFF;
+			background-color: #ffffff30;
+		}
+		.like {
+			position: absolute;
+			right: 12%;
+		}
+		.more {
+			position: absolute;
+			right: 4%;
+		}
+		.album {
+			font-weight: 450;
+			font-size: 18px;
+			line-height: 23px;
+			color: #B3B3B3;
+			position: absolute;
+			left: 47%;
+			z-index: 1;
+		}
+		.duration {
+			font-weight: 450;
+			font-size: 18px;
+			line-height: 23px;
+			color: #B3B3B3;
+		}
+		.fr {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			.titleNartist {
+				width: fit-content;
+				display: flex;
+				flex-direction: column;
+
+			}
+			p {
+				font-weight: 450;
+				font-size: 20px;
+				line-height: 25px;
+				letter-spacing: 0.01em;
+				color: #FFFFFF;
+			}
+			span {
+				font-weight: 450;
+				font-size: 18px;
+				line-height: 23px;
+				color: #B3B3B3;
+			}
+			img {
+				// position: absolute;
+				// z-index: 2;
+				// left: 5%;
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+}
