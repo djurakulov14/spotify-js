@@ -57,10 +57,10 @@ const reloadAside = (arr) => {
 
     homeLink.href = '../index.html'
     searchLink.href = '../pages/SearchPage.html'
-    libraryLink.href = '#'
+    libraryLink.href = '../pages/LibraryPage.html'
 
     let createPlaylist = document.createElement('div')
-    let liked = document.createElement('div')
+    let liked = document.createElement('a')
 
     let blockForIconpl = document.createElement('div')
     let blockForIconlike = document.createElement('div')
@@ -71,6 +71,7 @@ const reloadAside = (arr) => {
     let createText = document.createElement('span')
     let likedText = document.createElement('span')
 
+    liked.href = '../pages/LikedPage.html'
 
     likedText.innerHTML = 'Liked Songs'
     createText.innerHTML = 'Create Playlist'

@@ -1,5 +1,3 @@
-import { reloadHeader } from "../Layout/Header.js";
-import { reloadleftAside } from "../Layout/LeftAside.js";
 import { reloadTrack } from "../Layout/_child/Track.js";
 
 let searched = document.querySelector('.searchedItems')
@@ -8,12 +6,7 @@ let searchInp = document.querySelector('.headerSearch')
 let arr = []
 
 
-reloadleftAside()
 
-axios.get("http://localhost:7777/" + "user")
-    .then(res => {
-        reloadHeader(res.data)
-    }) 
 
 axios.get("http://localhost:7777/" + "tracks")
     .then(res => {

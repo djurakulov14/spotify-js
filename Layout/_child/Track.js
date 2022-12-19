@@ -2,6 +2,7 @@ const url = "http://localhost:7777/"
 
 
 const reloadTrack = (arr, place) => {
+    place.innerHTML = ""
     for(let item of arr) {
         let raw = document.createElement('div')
         let titleNartist = document.createElement('div')
@@ -59,9 +60,9 @@ const reloadTrack = (arr, place) => {
         }
 
         like.onclick = () => {
-            axios.patch(`${url}tracks?id=${item.id}`, {
+            axios.patch(`${url}tracks/${item.id}`, {
                 isLiked: item.isLiked ? false : true
-            }).then(res => console.log(res))
+            })
         }
         
     }

@@ -10,17 +10,40 @@ body::-webkit-scrollbar {
 	width: 0px;
 }
 
+html.premium {
+	--PremiumColor: #1ED760;
+}
+
+html.nonpremium {
+	--PremiumColor: #3333A3;
+}
+
 .playlist {
     position: relative;
 	left: 18%;
 	top: 80px;
-	background: linear-gradient(180deg, #3333A3 5.09%, #121212 33.4%);
+	background: linear-gradient(180deg, var(--PremiumColor) 5.09%, #121212 33.4%);
 	width: 64%;
 	padding: 40px;
 
     .mainInfo {
         display: flex;
         gap: 20px;
+
+        .likeBG {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(133.58deg, #3822EA 3.13%, #C7E9D7 97.71%);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
         .img {
             width: 300px;
             height: 300px;
@@ -135,7 +158,7 @@ body::-webkit-scrollbar {
                     gap: 30px;
                 }
             }
-            .track{
+            .track {
                 height: 70px;
                 display: flex;
                 align-items: center;

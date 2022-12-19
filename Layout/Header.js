@@ -1,5 +1,10 @@
 const header = document.querySelector('header')
 
+axios.get("http://localhost:7777/" + "user")
+    .then(res => {
+        reloadHeader(res.data)
+    })
+
 const reloadHeader = (info) => {
     let nextPrevBtns = document.createElement('div')
     let next = document.createElement('button')
@@ -34,5 +39,3 @@ const reloadHeader = (info) => {
     account.append(ava, accountName, dropDownBtn)
     header.append(nextPrevBtns, account)
 }
-
-export {reloadHeader};

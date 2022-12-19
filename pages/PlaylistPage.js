@@ -1,25 +1,22 @@
-import { reloadHeader } from "../Layout/Header.js";
-import { reloadleftAside } from "../Layout/LeftAside.js";
 import { reloadTrack } from "../Layout/_child/Track.js";
 
 let mainInfo = document.querySelector('.mainInfo')
 let tracks = document.querySelector('.forTracks')
 let searchBox = document.querySelector('.inpBox')
+let searchTrack = searchBox.children.inp
 
 const url = "http://localhost:7777/"
 let id = window.location.href.split('=').at(-1)
 let setSearchBox = false
 let total = 0
+let searched = []
 
-reloadleftAside()
 
-axios.get(url + "user")
-    .then(res => {
-        reloadHeader(res.data)
-    })
+
     
 axios.get(`${url}tracks?playlistID=${id}`)
     .then(res => {
+        searched = res.data
         for(let i = 0; i < res.data.length; i++) {
             total++
         }
@@ -45,12 +42,12 @@ const reloadInfo = (arr) => {
 }
 
 searchBox.children[0].onclick = () => {
-    searchBoxOpen()
+    searchBox.classList.toggle('active')
+    reloadTrack(searched, tracks)
 }
 
-
-
-function searchBoxOpen () {
-    searchBox.classList.toggle('active')
-
+searchBox.onkeyup = () => {
+    tracks.innerHTML = ""
+    let filtered = searched.filter(item => item.title.toLowerCase().includes(searchTrack.value.toLowerCase().trim()))
+    reloadTrack(filtered, tracks)
 }

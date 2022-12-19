@@ -16,10 +16,9 @@ const reloadleftAside = () => {
         <img src="../images/friend.png"/>
 
         <p class="leftdsc2">Go to Settings / Social and enable “Share my listening activity on Spotify.’ You can turn this off at any time.</p>
-        <button class="stngs">SETTINGS</button>
+        <a href="../pages/SettingsPage.html" class="stngs">SETTINGS</a>
     </div>
     `
 }
 
-
-export {reloadleftAside} ;
+reloadleftAside()

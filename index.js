@@ -1,26 +1,20 @@
-import { reloadHeader } from "./Layout/Header.js";
-import { reloadleftAside } from "./Layout/LeftAside.js";
 import { reloadCard } from "./Layout/PlaylistCard.js"
+
 let forPLaylist = document.querySelector('.forPlaylists')
 let urTopMixes = document.querySelector('.urTopMixes')
 const url = "http://localhost:7777/"
 
 
-reloadleftAside()
 
 axios.get(url + "playlists")
     .then(res => {
         reloadPlaylist(res.data)
     })
-axios.get(url + "user")
-    .then(res => {
-        reloadHeader(res.data)
-    })
 
 
 const reloadPlaylist = (arr) => {
     for (let item of arr) {
-        let box = document.createElement('div')
+        let box = document.createElement('box')
         let title = document.createElement('h2')
         let img = document.createElement('img')
 
@@ -38,8 +32,6 @@ const reloadPlaylist = (arr) => {
         }
     }
 
-    for (let item of arr) {
-        reloadCard(urTopMixes, item)
-    }
+    reloadCard(urTopMixes, arr)
 }
 
