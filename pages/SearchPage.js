@@ -1,36 +1,60 @@
 import { reloadTrack } from "../Layout/_child/Track.js";
+import { reloadCard } from "../Layout/PlaylistCard.js"
 
 let searched = document.querySelector('.searchedItems')
 let searchInp = document.querySelector('.headerSearch')
+let swipeItems = document.querySelector('.swiper-wrapper')
+let AddtoBG = document.querySelector('.AddtoBG')
+let Addto = document.querySelector('.Addto')
 
 let arr = []
 
 
 
-
-axios.get("http://localhost:7777/" + "tracks")
-    .then(res => {
-        arr = res.data
+function fetchTrack() {
+    axios.get("http://localhost:7777/" + "tracks")
+    .then(res => {  
+        ReloadSearched(res.data)    
     }) 
-    
-
-searchInp.onkeyup = () => {
-    let filtered = []
-    let filtered2 = []
-    if(searchInp.value.length !== 0) {
-        filtered = arr.filter(item => item.title.toLowerCase().includes(searchInp.value.toLowerCase().trim()))
-        filtered2 = arr.filter(item => item.artists.toLowerCase().includes(searchInp.value.toLowerCase().trim()))
-    } 
-    ReloadSearched(filtered.concat(filtered2))
-} 
-
-
-
-
-
-const ReloadSearched = (items) => {
-    searched.innerHTML = ""
-    if(items.length !== 0) {
-        reloadTrack(items, searched)
-    }
 }
+
+fetchTrack()
+
+axios.get("http://localhost:7777/" + "playlists")
+.then(res => {
+    reloadCard(swipeItems, res.data, true)
+}) 
+
+
+
+
+const ReloadSearched = (arr) => {
+    searched.innerHTML = ""
+
+    searchInp.onkeyup = () => {
+        
+        let filtered = []
+        let filtered2 = []
+        
+        if(searchInp.value.length !== 0) {
+            filtered = arr.filter(item => item.title.toLowerCase().includes(searchInp.value.toLowerCase().trim()))
+            filtered2 = arr.filter(item => item.artists.toLowerCase().includes(searchInp.value.toLowerCase().trim()))
+        } 
+        
+        reloadTrack(filtered.concat(filtered2), searched, fetchTrack, AddtoBG, Addto)
+    } 
+}
+
+
+
+
+
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });

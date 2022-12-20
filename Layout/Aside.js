@@ -1,13 +1,21 @@
 const aside = document.querySelector('aside')
+const CreateModalBG = document.querySelector('.CreatePlaylistBG')
+const CreateModal = document.querySelector('.CreatePlaylist')
+const form = document.forms.add
 
 
 
-axios.get("http://localhost:7777/" + "playlists")
+function fetchPlaylists() {
+    axios.get("http://localhost:7777/" + "playlists")
     .then(res => {
             reloadAside(res.data.filter(item => item.isFromSpoti == false))
         })
+}
+fetchPlaylists()
+
 
 const reloadAside = (arr) => {
+    aside.innerHTML = ""
     let nav = document.createElement('nav')
     let top = document.createElement('div')
     let bot = document.createElement('div')
@@ -101,5 +109,57 @@ const reloadAside = (arr) => {
     nav.append(top, bot, underNav)
     aside.append(nav)
 
+
+    createPlaylist.onclick = () => {
+        ModalOpen()
+    }
+
+    CreateModalBG.onclick = () => {
+        ModalClose()
+    }
 }
 
+function ModalOpen () {
+    document.body.style.overflow = 'hidden';
+    CreateModal.style.display = "block"
+    CreateModalBG.style.display = "block"
+    setTimeout(() => {
+        CreateModal.style.opacity = "1"
+        CreateModalBG.style.opacity = "1"
+    }, 300);
+}
+
+function ModalClose () {
+    document.body.style.overflow = 'scroll';
+    CreateModal.style.opacity = "0"
+    CreateModalBG.style.opacity = "0"
+    setTimeout(() => {
+        CreateModal.style.display = "none"
+        CreateModalBG.style.display = "none"
+    }, 300);
+}
+
+
+form.onsubmit = (e) => {
+    let playlist = {
+        "id": Math.random(),
+        "creator": "Sardor",
+        "isFromSpoti": false,
+        "genre": "random",
+        "img": [
+            "./images/newPlaylist.png"
+        ]
+    }
+
+    let fm = new FormData(form)
+
+    fm.forEach((value, key) => {
+        playlist[key] = value
+    })
+
+    axios.post("http://localhost:7777/" + "playlists", playlist)
+        .then(res => {
+            ModalClose()
+        })
+    
+}

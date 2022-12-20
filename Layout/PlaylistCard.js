@@ -1,6 +1,6 @@
 
 
-const reloadCard = (place, arr) => {
+const reloadCard = (place, arr, swipe) => {
     for(let item of arr){
         let card = document.createElement('div')
         let cardText = document.createElement('div')
@@ -12,7 +12,7 @@ const reloadCard = (place, arr) => {
         title.innerHTML = item.title
         authors.innerHTML = item.isFromSpoti ? `Made for ${item.creator}` : `Made by ${item.creator}`
     
-        card.classList = 'card'
+        card.classList.add(swipe ? "swiper-slide" : "card") 
     
         cardText.append(title,authors)
         card.append(img, cardText)

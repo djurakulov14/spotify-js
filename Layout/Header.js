@@ -12,6 +12,21 @@ const reloadHeader = (info) => {
     let nextPrevIcon = document.createElement('img')
     let nextPrevIcon2 = document.createElement('img')
 
+    let secret = document.createElement('div')
+    let secretInfo = document.createElement('p')
+    let secretLink = document.createElement('a')
+
+    let nonsecret = document.createElement('div')
+
+    nonsecret.classList.add("nonsecret")
+
+    secret.classList.add("secret")
+
+    secretInfo.innerHTML = info.isPremium ? "Premium User" : "Free User"
+    secretLink.href = "../pages/SettingsPage.html"
+    secretLink.innerHTML = "Settings"
+    secret.append(secretInfo, secretLink)
+
     let account = document.createElement('div')
     let ava = document.createElement('img')
     let accountName = document.createElement('span')
@@ -36,6 +51,12 @@ const reloadHeader = (info) => {
     accountName.innerHTML = info.name
 
     nextPrevBtns.append(prev, next)
-    account.append(ava, accountName, dropDownBtn)
+    nonsecret.append(ava, accountName, dropDownBtn)
+    account.append(nonsecret, secret)
     header.append(nextPrevBtns, account)
+
+    dropDownBtn.onclick = () => {
+        account.style.height = account.style.height == "80px" ? "40px" : "80px"
+        dropDownBtn.classList.toggle("turn")
+    }
 }

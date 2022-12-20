@@ -16,7 +16,7 @@ body {
     position: relative;
     height: fit-content;
 	left: 18%;
-	top: 80px;
+	top:-60px;
 	width: 64%;
 	padding: 40px;
 	.track{
@@ -88,3 +88,58 @@ body {
 		}
 	}
 }
+
+.swiper {
+    width: 40%;
+	margin: 100px auto;
+
+      .swiper-slide {
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+		width: 224px;
+		height: 324px;
+		border-radius: 8px;
+		background: #FFFFFF10;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		// justify-content: space-between;
+		gap: 20px;
+		padding: 20px;
+		transition: .5s ease;
+		img {
+			width: 182px;
+			height: 182px;
+		}
+		div {
+			display: flex;
+			// align-items: ;
+			justify-content: space-between;
+			flex-direction: column;
+			gap: 10px;
+			p {
+				font-weight: 450;
+				font-size: 16px;
+				line-height: 23px;
+				color: #B3B3B3;
+				flex: none;
+				order: 1;
+				flex-grow: 0;
+			}
+		}
+      }
+}
+
+
+

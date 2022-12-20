@@ -189,15 +189,37 @@ html.nonpremium {
                     z-index: 1;
                 }
                 .duration {
+                    position: absolute;
+                    left: 90%;
                     font-weight: 450;
                     font-size: 18px;
                     line-height: 23px;
                     color: #B3B3B3;
                 }
+                .modalcha {
+                    cursor: pointer;
+                    display: none;
+                    background-color: gray;
+                    position: relative;
+                    z-index: 2;
+                    left: 102%;
+                    top: -15px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    p {
+                        text-align: center;
+                    }
+                }
                 .fr {
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    position: absolute;
+                    left: 4%;
                     .titleNartist {
                         width: fit-content;
                         display: flex;
