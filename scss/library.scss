@@ -19,6 +19,7 @@ html.nonpremium {
     gap: 30px;
     margin-bottom: 50px;
     .card {
+        text-decoration: none;
         width: 224px;
         height: 324px;
         border-radius: 8px;
@@ -39,8 +40,10 @@ html.nonpremium {
             // align-items: ;
             justify-content: space-between;
             flex-direction: column;
-            gap: 10px;
+        text-decoration: none;
+        gap: 10px;
             p {
+                text-decoration: none;
                 font-weight: 450;
                 font-size: 16px;
                 line-height: 23px;
