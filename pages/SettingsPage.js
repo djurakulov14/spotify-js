@@ -1,3 +1,5 @@
+// import { Player } from "../Layout/Player"
+
 let checkBox = document.querySelector('.checkbox_input')
 let form = document.forms.user
 let inpName = form.name

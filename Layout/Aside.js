@@ -85,7 +85,7 @@ const reloadAside = (arr) => {
     createText.innerHTML = 'Create Playlist'
 
     plus.src = '../images/plus.svg'
-    heart.src = '../images/heart.svg'
+    heart.src = '../images/like.svg'
 
     createPlaylist.classList.add('create')
     liked.classList.add('liked')

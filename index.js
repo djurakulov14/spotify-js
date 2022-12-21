@@ -1,4 +1,5 @@
 import { reloadCard } from "./Layout/PlaylistCard.js"
+import { Player } from "./Layout/Player.js"
 
 let forPLaylist = document.querySelector('.forPlaylists')
 let urTopMixes = document.querySelector('.urTopMixes')

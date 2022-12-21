@@ -5,7 +5,6 @@ let id = 0
 
 let isplay = false
 
-
 export function Player(info) {
     id = info.id
     localStorage.setItem("currentMusic", JSON.stringify(info))
@@ -129,6 +128,7 @@ export function Player(info) {
 
     // appending
 
+
     bot.append(audio)
     playPause.append(play)
     top.append(repeat, prev, playPause, next, random)
@@ -139,6 +139,8 @@ export function Player(info) {
     player.append(left, mid, right)
     place.append(player)
 
+
+    console.log(player);
     
 }
 
