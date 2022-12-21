@@ -117,6 +117,17 @@ const reloadAside = (arr) => {
     CreateModalBG.onclick = () => {
         ModalClose()
     }
+
+    let divs = [home, search, library]
+
+    divs.forEach(item => {
+        item.onclick = (e) => {
+            divs.forEach(item => item.classList.remove("active"))
+
+
+            item.classList.add("active")
+        }
+    })
 }
 
 function ModalOpen () {

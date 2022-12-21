@@ -1,5 +1,6 @@
 const url = "http://localhost:7777/"
 import reloadAddto from "../../Layout/_child/AddtoFunc.js";
+import { Player } from "../Player.js";
 
 axios.get("http://localhost:7777/" + "playlists")
     .then(res => playlists = res.data.filter(item => item.isFromSpoti == false))
@@ -11,6 +12,7 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
     place.innerHTML = ""
     for(let item of arr) {
         let raw = document.createElement('div')
+        let invisible = document.createElement('div')
         let titleNartist = document.createElement('div')
         let fr = document.createElement('div')
         let title = document.createElement('p')
@@ -22,6 +24,7 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
         let like = document.createElement('img')
         let more = document.createElement('img')
 
+        invisible.classList.add('invisible')
         let modalcha = document.createElement('div')
 
         modalcha.classList.add('modalcha')
@@ -69,7 +72,7 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
 
         raw.onmouseenter = () => {
             raw.innerHTML = ""
-            raw.append(fr,modalcha, album, like, duration, more )
+            raw.append(fr,modalcha, album, like, invisible, duration, more )
         }
         raw.onmouseleave = () => {
             raw.innerHTML = ""
@@ -96,6 +99,9 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
 
         AddtoBG.onclick = () => {
             ModalClose(Addto, AddtoBG)
+        }
+        invisible.onclick = () => {
+            Player(item)
         }
     }
     

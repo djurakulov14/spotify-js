@@ -43,7 +43,7 @@ const reloadInfo = (arr) => {
         <div class="info">
             <p>PUBLIC PLAYLIST</p>
             <h1>${arr.title}</h1>
-            <p>${arr.isFromSpoti ? 'Made for ' + "<b>" + arr.creator + "</b>" : 'Made by ' + "<b>" + arr.creator + "</b>"} - ${total} songs</p>
+            <p>${arr.isFromSpoti ? 'Made for ' + "<b>" + arr.creator + "</b>" : 'Made by ' + "<b>" + arr.creator + "</b>"} - ${total - 1} songs</p>
         </div>
     `
 }

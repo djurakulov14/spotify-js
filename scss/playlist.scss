@@ -214,6 +214,13 @@ html.nonpremium {
                         text-align: center;
                     }
                 }
+                .invisible {
+                    width: 90%;
+                    height: 120%;
+                    background-color: transparent;
+                    position: relative;
+                    z-index: 4;
+                }
                 .fr {
                     display: flex;
                     align-items: center;
