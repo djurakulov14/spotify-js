@@ -5,7 +5,7 @@ let id = 0
 
 let isplay = false
 
-export function Player(info) {
+export function Player(info, isplay, fetch) {
     id = info.id
     localStorage.setItem("currentMusic", JSON.stringify(info))
     place.innerHTML = ''
@@ -70,7 +70,7 @@ export function Player(info) {
     like.src = info?.isLiked ? "../images/GreenHeart.svg" : "../images/like.svg"
     repeat.src = "../images/Repeat.svg"
     random.src = "../images/Shuffle.svg"
-    play.src ="../images/play.svg"
+    play.src = isplay ?"../images/play.svg" : "../images/pause.svg"
     next.src = "../images/next.svg"
     prev.src = "../images/prev.svg"
     devices.src = "../images/Devices.svg"
@@ -78,6 +78,9 @@ export function Player(info) {
     volume.src = "../images/Volume.svg"
     audio.src = info?.url
     audio.setAttribute("controls", "controls")
+    if(typeof(fetch) == "function") {
+        audio.setAttribute("autoplay", "autoplay")
+    }
     
     playPause.onclick = () => {
         isplay = !isplay
@@ -105,7 +108,8 @@ export function Player(info) {
             isLiked: info.isLiked ? false : true
         }).then(res => {
             localStorage.setItem("currentMusic", JSON.stringify(res.data))
-            Player(res.data)
+            Player(res.data, false, fetch)
+            fetch()
         })
         
     }
@@ -139,9 +143,6 @@ export function Player(info) {
     player.append(left, mid, right)
     place.append(player)
 
-
-    console.log(player);
-    
 }
 
-Player(music)
+Player(music, true, true)
