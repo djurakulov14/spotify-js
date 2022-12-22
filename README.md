@@ -6,15 +6,7 @@
 2. If you using gulp first time You have to install it global > npm install --global gulp-cli
 3. On the terminal write this **npm install**
 4. On the terminal write **gulp** to start 
-5. If everythink is ok **Just click the star on this repo**
-
-# last but not least my app is working with fake API
-
-## white some commands on terminal before start testing
-
-1. npm i
-
-2. npm start
+5. If everythink is ok **Just click the star 
 
 
 # Telegram
