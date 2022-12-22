@@ -101,7 +101,7 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
             ModalClose(Addto, AddtoBG)
         }
         invisible.onclick = () => {
-            Player(item)
+            Player(item, false, fetch)
         }
     }
     

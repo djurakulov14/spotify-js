@@ -172,5 +172,7 @@ form.onsubmit = (e) => {
         .then(res => {
             ModalClose()
         })
+
+        console.log(playlist    );
     
 }

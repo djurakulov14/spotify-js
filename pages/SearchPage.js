@@ -1,7 +1,7 @@
 import { reloadTrack } from "../Layout/_child/Track.js";
 import { reloadCard } from "../Layout/PlaylistCard.js"
 
-let searched = document.querySelector('.searchedItems')
+let searched = document.querySelector('.forTracks')
 let searchInp = document.querySelector('.headerSearch')
 let swipeItems = document.querySelector('.swiper-wrapper')
 let AddtoBG = document.querySelector('.AddtoBG')
@@ -42,6 +42,7 @@ const ReloadSearched = (arr) => {
         } 
         
         reloadTrack(filtered.concat(filtered2), searched, fetchTrack, AddtoBG, Addto)
+        console.log("works");
     } 
 }
 

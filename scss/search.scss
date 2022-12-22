@@ -11,15 +11,32 @@ body {
     background-color: #121212;
 
 }
-.searched {
-    background-color: #121212;
-    position: relative;
-    height: fit-content;
+.trackss {
+	position: relative;
 	left: 18%;
-	top:-60px;
-	width: 64%;
+	width: 82%;
 	padding: 40px;
-	.track{
+	.tHead {
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid #666666;
+		padding: 15px;
+		padding-right: 50px;
+		margin-bottom: 10px;
+		p, span {
+			color: #B3B3B3;
+			font-weight: 450;
+			font-size: 16px;
+			line-height: 20px;
+		}
+		.fr {
+			display: flex;
+			gap: 30px;
+		}
+	}
+	.track {
 		height: 70px;
 		display: flex;
 		align-items: center;
@@ -34,11 +51,11 @@ body {
 		}
 		.like {
 			position: absolute;
-			right: 12%;
+			right: 10%;
 		}
 		.more {
 			position: absolute;
-			right: 4%;
+			right: 3%;
 		}
 		.album {
 			font-weight: 450;
@@ -46,19 +63,48 @@ body {
 			line-height: 23px;
 			color: #B3B3B3;
 			position: absolute;
-			left: 47%;
+			left: 48%;
 			z-index: 1;
 		}
 		.duration {
+			position: absolute;
+			left: 92.5%;
 			font-weight: 450;
 			font-size: 18px;
 			line-height: 23px;
 			color: #B3B3B3;
 		}
+		.modalcha {
+			cursor: pointer;
+			display: none;
+			background-color: gray;
+			position: relative;
+			z-index: 2;
+			left: 97%;
+			top: -15px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex-direction: column;
+			padding: 5px 10px;
+			border-radius: 5px;
+			p {
+				text-align: center;
+			}
+		}
+		.invisible {
+			width: 90%;
+			height: 120%;
+			background-color: transparent;
+			position: relative;
+			z-index: 4;
+		}
 		.fr {
 			display: flex;
 			align-items: center;
 			gap: 10px;
+			position: absolute;
+			left: 4%;
 			.titleNartist {
 				width: fit-content;
 				display: flex;
@@ -91,8 +137,9 @@ body {
 
 .swiper {
     width: 40%;
-	margin: 100px auto;
-
+	margin:100px auto;
+	margin-left: 700px;
+	margin-bottom: 30px;
       .swiper-slide {
 
         /* Center slide text vertically */
@@ -107,7 +154,7 @@ body {
         -webkit-box-align: center;
         -ms-flex-align: center;
         -webkit-align-items: center;
-		width: 224px;
+		// width: 224px;
 		height: 324px;
 		border-radius: 8px;
 		background: #FFFFFF10;

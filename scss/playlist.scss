@@ -23,7 +23,7 @@ html.nonpremium {
 	left: 18%;
 	top: 80px;
 	background: linear-gradient(180deg, var(--PremiumColor) 5.09%, #121212 33.4%);
-	width: 64%;
+	width: 82%;
 	padding: 40px;
 
     .mainInfo {
@@ -144,7 +144,7 @@ html.nonpremium {
                 justify-content: space-between;
                 align-items: center;
                 border-bottom: 1px solid #666666;
-                padding: 10px;
+                padding: 15px;
                 padding-right: 50px;
                 margin-bottom: 10px;
                 p, span {
@@ -173,11 +173,11 @@ html.nonpremium {
                 }
                 .like {
                     position: absolute;
-                    right: 12%;
+                    right: 10%;
                 }
                 .more {
                     position: absolute;
-                    right: 4%;
+                    right: 3%;
                 }
                 .album {
                     font-weight: 450;
@@ -185,12 +185,12 @@ html.nonpremium {
                     line-height: 23px;
                     color: #B3B3B3;
                     position: absolute;
-                    left: 47%;
+                    left: 48%;
                     z-index: 1;
                 }
                 .duration {
                     position: absolute;
-                    left: 90%;
+                    left: 92.5%;
                     font-weight: 450;
                     font-size: 18px;
                     line-height: 23px;
@@ -202,7 +202,7 @@ html.nonpremium {
                     background-color: gray;
                     position: relative;
                     z-index: 2;
-                    left: 102%;
+                    left: 97%;
                     top: -15px;
                     display: flex;
                     flex-direction: column;
