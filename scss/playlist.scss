@@ -25,7 +25,7 @@ html.nonpremium {
 	background: linear-gradient(180deg, var(--PremiumColor) 5.09%, #121212 33.4%);
 	width: 82%;
 	padding: 40px;
-
+    z-index: 5;
     .mainInfo {
         display: flex;
         gap: 20px;
@@ -170,14 +170,22 @@ html.nonpremium {
                 &:hover {
                     color: #FFFFFF;
                     background-color: #ffffff30;
+                    .more{
+                        display: block;
+                    }
+                    .like {
+                        display: block;
+                    }
                 }
                 .like {
                     position: absolute;
                     right: 10%;
+                    display: none;
                 }
                 .more {
                     position: absolute;
                     right: 3%;
+                    display: none;
                 }
                 .album {
                     font-weight: 450;

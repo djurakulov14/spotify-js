@@ -38,6 +38,8 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
         like.classList.add('like')
         more.classList.add('more')
 
+        title.classList.add("trackTitle")
+
         like.src = item.isLiked ? "../images/GreenHeart.svg" : "../images/like.svg"
 
         more.src = "../images/3tochka.svg"
@@ -67,7 +69,7 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
         img.src = item.img
         modalcha.style.display = "none"
 
-        raw.append(fr, album, duration)
+        raw.append(fr, album, like, invisible, duration, more)
         place.append(raw)
 
         raw.onmouseenter = () => {
@@ -76,7 +78,7 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
         }
         raw.onmouseleave = () => {
             raw.innerHTML = ""
-            raw.append(fr, album, duration)
+            raw.append(fr, album, duration, like, invisible, duration, more)
             modalcha.style.display = "none"
         }
 

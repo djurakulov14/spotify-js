@@ -105,6 +105,7 @@ export function Player(info, isplay, fetch) {
         }
 
         like.onclick = () => {
+            console.log("liked");
             axios.patch(`${url}tracks/${info.id}`, {
                 isLiked: info.isLiked ? false : true
             }).then(res => {
@@ -112,7 +113,6 @@ export function Player(info, isplay, fetch) {
                 Player(res.data, true, fetch)
                 fetch()
             })
-            
         }
 
         next.onclick = () => {
