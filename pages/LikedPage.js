@@ -16,16 +16,20 @@ function fetchTrack () {
             reloadTrack(filtered, forTracks, fetchTrack, AddtoBG, Addto)
             liked.innerHTML = filtered.length
             searched = filtered
+            console.log(searched);
         })
 }
 fetchTrack()
 
 searchBox.children[0].onclick = () => {
     searchBox.classList.toggle('active')
-    reloadTrack(searched, forTracks, fetchTrack, AddtoBG, Addto)
+    // reloadTrack(searched, forTracks, AddtoBG, Addto)
 }
 
 searchBox.onkeyup = () => {
+    forTracks.innerHTML = ""
     let filtered = searched.filter(item => item.title.toLowerCase().includes(searchTrack.value.toLowerCase().trim()))
-    reloadTrack(filtered, forTracks, fetchTrack, AddtoBG, Addto)
+    reloadTrack(filtered, forTracks, AddtoBG, Addto)
+    console.log(filtered);
 }
+

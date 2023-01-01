@@ -563,7 +563,13 @@ main {
 	display: none;
 	transition: .3s ease;
 	h1 {
-		margin-bottom: 30px;
+		margin-bottom: 15px;
+	}
+	span {
+		cursor: pointer;
+		display: block;
+		text-decoration: underline;
+		margin-bottom: 25px;
 	}
 }
 

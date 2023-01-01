@@ -8,8 +8,10 @@ axios.get("http://localhost:7777/" + "playlists")
 let playlists = []
 
 
-const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
-    place.innerHTML = ""
+const reloadTrack = (arr, place, fetch, AddtoBG, Addto, blyat) => {
+    if(blyat == false) {
+        place.innerHTML = ""
+    }
     for(let item of arr) {
         let raw = document.createElement('div')
         let invisible = document.createElement('div')
@@ -40,7 +42,7 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto) => {
 
         title.classList.add("trackTitle")
 
-        like.src = item.isLiked ? "../images/GreenHeart.svg" : "../images/like.svg"
+        like.src = item.isLiked ? "../images/GreenHeart.svg" : "../images/like.png"
 
         more.src = "../images/3tochka.svg"
 

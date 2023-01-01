@@ -1,10 +1,10 @@
-let place = document.querySelector('.forPlayer')
-let music = localStorage.getItem("currentMusic");music = JSON.parse(music)
-const url = "http://localhost:7777/"
+
+let info = JSON.parse(localStorage.getItem("currentMusic"))
+let place = document.querySelector(".playerPage")
 let id = 0
 
 
-export function Player(info, isplay, fetch) {
+function Player(info, isplay, fetch) {
     if(info !== null) {
         id = info.id
         localStorage.setItem("currentMusic", JSON.stringify(info))
@@ -150,4 +150,4 @@ export function Player(info, isplay, fetch) {
     }
 }
 
-Player(music, true, true)
+Player(info, true, true)

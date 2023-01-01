@@ -36,3 +36,4 @@ const reloadPlaylist = (arr) => {
     reloadCard(urTopMixes, arr)
 }
 
+let screenWidth = window.screen.width
