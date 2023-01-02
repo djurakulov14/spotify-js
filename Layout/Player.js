@@ -20,6 +20,7 @@ export function Player(info, isplay, fetch) {
         let title = document.createElement('p')
         let artist = document.createElement('p')
         let like = document.createElement('img')
+        let toPage = document.createElement('a')
 
         // for mid
         let top = document.createElement('div')
@@ -57,13 +58,13 @@ export function Player(info, isplay, fetch) {
         next.classList.add('next')
         playPause.classList.add('playPause')
         play.classList.add('play')
-        audio.classList.add('audio')
         devices.classList.add('devices')
         queue.classList.add('queue')
         volume.classList.add('volume')
 
         // src and funcs
 
+        toPage.href = "../pages/playerPage.html"
         image.src = info?.img
         title.innerHTML = info?.title
         artist.innerHTML = info?.artists
@@ -137,11 +138,12 @@ export function Player(info, isplay, fetch) {
         // appending
 
 
+        toPage.append(image)
         bot.append(audio)
         playPause.append(play)
         top.append(repeat, prev, playPause, next, random)
         artistNtitle.append(title, artist)
-        left.append(image, artistNtitle, like)
+        left.append(toPage, artistNtitle, like)
         mid.append(top, bot)
         right.append(devices, queue, volume)
         player.append(left, mid, right)

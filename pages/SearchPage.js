@@ -29,9 +29,9 @@ axios.get("http://localhost:7777/" + "playlists")
 
 
 const ReloadSearched = (arr) => {
-    searched.innerHTML = ""
-
+    
     searchInp.onkeyup = () => {
+        searched.innerHTML = ""
         
         let filtered = []
         let filtered2 = []

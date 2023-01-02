@@ -494,11 +494,11 @@ main {
 
 .CreatePlaylist {
 	position: fixed;
-	z-index: 16;
+	z-index: 19;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 25%;
+	// width: 25%;
 	height: fit-content;
 	background-color: black;
 	padding: 40px;
@@ -554,22 +554,16 @@ main {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 25%;
+	// width: 25%;
 	height: fit-content;
 	background-color: black;
-	padding: 40px;
+	padding: 30px;
 	border-radius: 20px;
 	opacity: 0;
 	display: none;
 	transition: .3s ease;
-	h1 {
-		margin-bottom: 15px;
-	}
-	span {
-		cursor: pointer;
-		display: block;
-		text-decoration: underline;
-		margin-bottom: 25px;
+	h2 {
+		margin-bottom: 30px;
 	}
 }
 
@@ -725,4 +719,88 @@ audio::-webkit-media-controls-return-to-realtime-button {
 
 audio::-webkit-media-controls-toggle-closed-captions-button {
 	display: none;
+}
+
+
+.playerPage {
+	position: relative;
+	left: 18%;
+	top: 80px;
+	width: 82%;
+	padding-top: 30px;
+	.playerPages {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		align-items: center;
+		gap: 20px;
+		.left {
+			width: 300px;
+			display: flex;
+			flex-direction: column;
+			img {
+				width: fit-content;
+				margin-bottom: 20px;
+			}
+			.smth {
+				display: flex;
+				justify-content: space-between;
+				.artistNtitle {
+					overflow: hidden;
+					width: 50%;
+					white-space: nowrap;
+					.title {
+						font-weight: 450;
+						font-size: 18px;
+						line-height: 23px;
+					}
+					.artist {
+						font-weight: 450;
+						font-size: 16px;
+						line-height: 20px;
+						letter-spacing: -0.05em;
+						color: #B3B3B3;
+					}
+				}
+			}
+		}
+		.mid {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			width: 480px;
+			overflow: hidden;
+			.top {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				.playPause {
+					width: 50px;
+					height: 50px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: white;
+					border-radius: 100px;
+				}
+				img {
+					filter: invert(20%);
+					transition: .2s ease;
+					&:hover {
+						filter: invert(0%);
+					}
+				}
+				.active {
+					filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+					&:hover {
+						filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+					}
+				}
+			}
+		}
+	}
 }

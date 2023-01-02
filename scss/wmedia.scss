@@ -513,6 +513,16 @@
 
 
 @media only screen and (max-width: 1020px) {
+	
+	.playerPage {
+		position: relative;
+		left: 0;
+		top: 80px;
+		width:100%;
+		padding-top: 30px;
+		margin: 0 auto;
+		margin-right: 0;
+	}
 	header {
 		display: flex;
 		// align-items: center;
@@ -541,7 +551,7 @@
 				width: 100%;
 				position: fixed;
 				z-index: 100;
-				bottom: -8%;
+				bottom: -7%;
 				left: 50%;
 				transform: translateX(-50%);
 				display: flex;
@@ -657,7 +667,7 @@
 	.player {
 		padding: 20px ;
 		position: fixed;
-		bottom: 9%;
+		bottom: 8%;
 		left: 50%;
 		transform:translateX(-50%);
 		z-index: 9;
@@ -732,6 +742,12 @@
 				}
 			}
 		}
+	}
+	.audio {
+		height: 20px;
+		// color: white;
+		border: none;
+		width:500px;
 	}
 	audio {
 		height: 20px;
@@ -1078,7 +1094,7 @@
 	.player {
 		padding: 10px ;
 		position: fixed;
-		bottom: 9%;
+		bottom: 8%;
 		left: 50%;
 		transform:translateX(-50%);
 		z-index: 9;
@@ -1167,12 +1183,19 @@
 		}
 	}
 	audio {
-	display: none;
+		display: none;
 		left: -80%;
 		height: 20px;
 		// color: white;
 		border: none;
 		width:600px;
+	}
+	.audio {
+		display: block;
+		height: 20px;
+		// color: white;
+		border: none;
+		width:500px;
 	}
 
 	.trackss {
@@ -1662,6 +1685,13 @@
 }
 
 @media only screen and (max-width: 560px) {
+	.audio {
+		display: block;
+		height: 20px;
+		// color: white;
+		border: none;
+		width:350px;
+	}
 	aside {
 		width: 0;
 		height: 10%;
@@ -1677,7 +1707,7 @@
 				width: 100%;
 				position: fixed;
 				z-index: 100;
-				bottom: -8%;
+				bottom: -7%;
 				left: 50%;
 				transform: translateX(-50%);
 				display: flex;
@@ -2010,7 +2040,7 @@
 	.player {
 		padding: 10px ;
 		position: fixed;
-		bottom: 9%;
+		bottom: 6%;
 		left: 50%;
 		transform:translateX(-50%);
 		z-index: 9;

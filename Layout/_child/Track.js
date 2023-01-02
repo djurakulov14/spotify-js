@@ -109,7 +109,6 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto, blyat) => {
         }
     }
     
-    
     function ModalOpen () {
         document.body.style.overflow = 'hidden';
         Addto.style.display = "block"

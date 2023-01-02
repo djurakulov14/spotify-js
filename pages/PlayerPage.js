@@ -2,9 +2,10 @@
 let info = JSON.parse(localStorage.getItem("currentMusic"))
 let place = document.querySelector(".playerPage")
 let id = 0
+const url = "http://localhost:7777/"
 
 
-function Player(info, isplay, fetch) {
+function Player(info, isplay) {
     if(info !== null) {
         id = info.id
         localStorage.setItem("currentMusic", JSON.stringify(info))
@@ -20,6 +21,7 @@ function Player(info, isplay, fetch) {
         let title = document.createElement('p')
         let artist = document.createElement('p')
         let like = document.createElement('img')
+        let smth = document.createElement('div')
 
         // for mid
         let top = document.createElement('div')
@@ -40,7 +42,7 @@ function Player(info, isplay, fetch) {
 
         // classList
         
-        player.classList.add('player')
+        player.classList.add('playerPages')
         left.classList.add('left')
         mid.classList.add('mid')
         right.classList.add('right')
@@ -61,6 +63,8 @@ function Player(info, isplay, fetch) {
         devices.classList.add('devices')
         queue.classList.add('queue')
         volume.classList.add('volume')
+        smth.classList.add("smth")
+        audio.classList.add("audio")
 
         // src and funcs
 
@@ -78,30 +82,32 @@ function Player(info, isplay, fetch) {
         volume.src = "../images/Volume.svg"
         audio.src = info?.url
         audio.setAttribute("controls", "controls")
-        if(typeof(fetch) == "function" || isplay == false) {
+
+        if(isplay == false) {
             audio.setAttribute("autoplay", "autoplay")
         }
-        image.onclick = () => {
-            window.location.assign("pages/playerPage.html")
-        }
-        
+
         playPause.onclick = () => {
-            isplay = !isplay
-            isplay ? play.src = "../images/pause.svg" : play.src = "../images/play.svg"
+            Player(info, !isplay)
             isplay ? audio.play() : audio.pause()
         }
+
         repeat.onclick = () => {
             repeat.classList.toggle("active")
             audio.toggleAttribute("loop")
+            console.log("works");
         }
+
         random.onclick = () => {
             random.classList.toggle("active")
             let id = Math.round(Math.random()*40)
             axios.get(`${url}tracks/${id}`)
             .then(res => {
-                Player(res.data)
+                Player(res.data, false)
             })
+            console.log("works");
         }
+
         volume.onclick = () => {
             audio.muted = !audio.muted
         }
@@ -112,16 +118,16 @@ function Player(info, isplay, fetch) {
                 isLiked: info.isLiked ? false : true
             }).then(res => {
                 localStorage.setItem("currentMusic", JSON.stringify(res.data))
-                Player(res.data, true, fetch)
-                fetch()
+                Player(res.data, isplay)
             })
+            console.log("works");
         }
 
         next.onclick = () => {
             id = id + 1
             axios.get(`${url}tracks/${id}`)
                 .then(res => {
-                    Player(res.data, false, fetch)
+                    Player(res.data, false)
                 })
             console.log("nice");
         }
@@ -130,18 +136,19 @@ function Player(info, isplay, fetch) {
             id = id - 1
             axios.get(`${url}tracks/${id}`)
                 .then(res => {
-                    Player(res.data, false, fetch)
+                    Player(res.data, false)
                 })
+            console.log("works");
         }
 
         // appending
 
-
+        smth.append(artistNtitle, like)
         bot.append(audio)
         playPause.append(play)
         top.append(repeat, prev, playPause, next, random)
         artistNtitle.append(title, artist)
-        left.append(image, artistNtitle, like)
+        left.append(image, smth)
         mid.append(top, bot)
         right.append(devices, queue, volume)
         player.append(left, mid, right)
@@ -150,4 +157,4 @@ function Player(info, isplay, fetch) {
     }
 }
 
-Player(info, true, true)
+Player(info, true)
