@@ -4,12 +4,13 @@
   "description": "1. You have to just clone this repository then > cd gulp_vanila_project\r 2. If you using gulp first time You have to install it global > npm install --global gulp-cli\r 3. On the terminal write this **npm install**\r 4. On the terminal write **gulp** to start \r 5. If everythink is ok **Just click the star",
   "main": "index.html",
   "scripts": {
-    "start": "json-server -p 7777 -w db.json",
+    "start": "concurrently \"json-server -p 7777 -w db.json\" \"gulp\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.6.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
