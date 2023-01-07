@@ -88,7 +88,8 @@ function Player(info, isplay) {
         }
 
         playPause.onclick = () => {
-            Player(info, !isplay)
+            isplay = !isplay
+            isplay ? play.src = "../images/pause.svg" : play.src = "../images/play.svg"
             isplay ? audio.play() : audio.pause()
         }
 

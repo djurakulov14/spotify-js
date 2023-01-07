@@ -551,7 +551,7 @@
 				width: 100%;
 				position: fixed;
 				z-index: 100;
-				bottom: -7%;
+				bottom: -5%;
 				left: 50%;
 				transform: translateX(-50%);
 				display: flex;
@@ -667,7 +667,7 @@
 	.player {
 		padding: 20px ;
 		position: fixed;
-		bottom: 8%;
+		bottom: 6%;
 		left: 50%;
 		transform:translateX(-50%);
 		z-index: 9;
@@ -1094,7 +1094,7 @@
 	.player {
 		padding: 10px ;
 		position: fixed;
-		bottom: 8%;
+		bottom: 6%;
 		left: 50%;
 		transform:translateX(-50%);
 		z-index: 9;
@@ -1685,12 +1685,34 @@
 }
 
 @media only screen and (max-width: 560px) {
+	.playerPage {
+		position: relative;
+		left: 0;
+		top: 80px;
+		padding-top: 20px;
+		margin: 0 auto;
+		height: fit-content;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.playerPages {
+			width: 300px;
+			// position: absolute;
+			// left: 50%;
+			// transform: translateX(-50%);
+			display: flex;
+			flex-direction: column;
+			// justify-content: center;
+			align-items: center;
+			gap: 20px;
+		}
+	}
 	.audio {
 		display: block;
 		height: 20px;
 		// color: white;
 		border: none;
-		width:350px;
+		width:250px;
 	}
 	aside {
 		width: 0;
@@ -1707,7 +1729,7 @@
 				width: 100%;
 				position: fixed;
 				z-index: 100;
-				bottom: -7%;
+				bottom: -5%;
 				left: 50%;
 				transform: translateX(-50%);
 				display: flex;
@@ -2040,7 +2062,7 @@
 	.player {
 		padding: 10px ;
 		position: fixed;
-		bottom: 6%;
+		bottom: 5%;
 		left: 50%;
 		transform:translateX(-50%);
 		z-index: 9;
