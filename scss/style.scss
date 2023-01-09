@@ -809,6 +809,17 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 				height: 8px;
 				background-color: #5E5E5E;
 				border-radius: 50px;
+
+				&:hover{
+					background-color: #1ED760;
+					.audioLength::before{
+						content: '';
+						width: 12px;
+						height: 12px;
+						position: relative;
+						right: 0;
+					}
+				}
 				.audioLength {
 					height: 100%;
 					background-color: white;

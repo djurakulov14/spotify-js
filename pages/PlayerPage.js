@@ -92,23 +92,6 @@ function Player(info, isplay) {
         audio.src = info?.url
         audio.setAttribute("controls", "controls")
 
-        function Snake(trigger) {
-            let set = setInterval(() => {
-                if (now >= 100) {
-                    now = 0
-                } else {
-                    now += num
-                    audioLength.style.width = now + '%'
-                    console.log(num);
-                }
-            }, 1000);
-
-            if(trigger) {
-                clearInterval(set)
-            }
-            console.log(trigger);
-
-        }
 
         if(playing == false) {
             audio.setAttribute("autoplay", "autoplay")
@@ -118,8 +101,6 @@ function Player(info, isplay) {
             playing = !playing
             playing ? play.src = "../images/play.svg" : play.src = "../images/pause.svg"
             playing ? audio.pause() : audio.play()
-            Snake(playing)
-            console.log(playing);
         }
 
         repeat.onclick = () => {
@@ -174,6 +155,15 @@ function Player(info, isplay) {
         audio.onended = () => {
             playing = !playing
             play.src = "../images/play.svg" 
+        }
+
+        audio.addEventListener('timeupdate', width)
+    
+        function width(e) {
+            const {duration, currentTime} = e.srcElement
+            const progresspercent = (currentTime / duration) * 100
+            console.log(progresspercent);
+            audioLength.style.width = `${progresspercent}%`
         }
 
         // appending
