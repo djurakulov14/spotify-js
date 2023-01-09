@@ -727,8 +727,11 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 	left: 18%;
 	top: 80px;
 	width: 82%;
-	padding-top: 30px;
+
 	.playerPages {
+		transition: 300ms ease;
+		width: 100%;
+		padding-top: 30px;
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -799,6 +802,18 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 					&:hover {
 						filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
 					}
+				}
+			}
+			.audio {
+				width: 350px;
+				height: 8px;
+				background-color: #5E5E5E;
+				border-radius: 50px;
+				.audioLength {
+					height: 100%;
+					background-color: white;
+					border-radius: 50px;
+					width: 0;
 				}
 			}
 		}

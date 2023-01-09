@@ -43,6 +43,13 @@ const reloadHeader = (info) => {
     prev.append(nextPrevIcon)
     next.append(nextPrevIcon2)
 
+    prev.onclick = () => {
+        history.back()
+    }
+    next.onclick = () => {
+        history.forward()
+    }
+
     nextPrevIcon.src = '../images/arrow.svg'
     nextPrevIcon2.src = '../images/arrow.svg'
     ava.src = info.ava

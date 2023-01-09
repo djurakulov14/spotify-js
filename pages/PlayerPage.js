@@ -1,3 +1,4 @@
+import { getAverageRGB } from "../Layout/_child/getImageColor.js"
 
 let info = JSON.parse(localStorage.getItem("currentMusic"))
 let place = document.querySelector(".playerPage")
@@ -6,7 +7,12 @@ const url = "http://localhost:7777/"
 
 
 function Player(info, isplay) {
+    let num = 350 / 150
+
+    let now = 0
+
     if(info !== null) {
+        let playing = isplay
         id = info.id
         localStorage.setItem("currentMusic", JSON.stringify(info))
         place.innerHTML = ''
@@ -33,6 +39,8 @@ function Player(info, isplay) {
         let playPause = document.createElement('div')
         let play = document.createElement('img')
         let audio = document.createElement('audio')
+        let audioDiv = document.createElement('div')
+        let audioLength = document.createElement('div')
 
         // for left
         let devices = document.createElement('img')
@@ -59,12 +67,13 @@ function Player(info, isplay) {
         next.classList.add('next')
         playPause.classList.add('playPause')
         play.classList.add('play')
-        audio.classList.add('audio')
+        // audio.classList.add('audio')
         devices.classList.add('devices')
         queue.classList.add('queue')
         volume.classList.add('volume')
         smth.classList.add("smth")
-        audio.classList.add("audio")
+        audioDiv.classList.add("audio")
+        audioLength.classList.add("audioLength")
 
         // src and funcs
 
@@ -74,7 +83,7 @@ function Player(info, isplay) {
         like.src = info?.isLiked ? "../images/GreenHeart.svg" : "../images/like.png"
         repeat.src = "../images/Repeat.svg"
         random.src = "../images/Shuffle.svg"
-        play.src = isplay ?"../images/play.svg" : "../images/pause.svg"
+        play.src = playing ?"../images/play.svg" : "../images/pause.svg"
         next.src = "../images/next.svg"
         prev.src = "../images/prev.svg"
         devices.src = "../images/Devices.svg"
@@ -83,14 +92,34 @@ function Player(info, isplay) {
         audio.src = info?.url
         audio.setAttribute("controls", "controls")
 
-        if(isplay == false) {
+        function Snake(trigger) {
+            let set = setInterval(() => {
+                if (now >= 100) {
+                    now = 0
+                } else {
+                    now += num
+                    audioLength.style.width = now + '%'
+                    console.log(num);
+                }
+            }, 1000);
+
+            if(trigger) {
+                clearInterval(set)
+            }
+            console.log(trigger);
+
+        }
+
+        if(playing == false) {
             audio.setAttribute("autoplay", "autoplay")
         }
 
         playPause.onclick = () => {
-            isplay = !isplay
-            isplay ? play.src = "../images/pause.svg" : play.src = "../images/play.svg"
-            isplay ? audio.play() : audio.pause()
+            playing = !playing
+            playing ? play.src = "../images/play.svg" : play.src = "../images/pause.svg"
+            playing ? audio.pause() : audio.play()
+            Snake(playing)
+            console.log(playing);
         }
 
         repeat.onclick = () => {
@@ -119,7 +148,7 @@ function Player(info, isplay) {
                 isLiked: info.isLiked ? false : true
             }).then(res => {
                 localStorage.setItem("currentMusic", JSON.stringify(res.data))
-                Player(res.data, isplay)
+                Player(res.data, playing)
             })
             console.log("works");
         }
@@ -128,7 +157,7 @@ function Player(info, isplay) {
             id = id + 1
             axios.get(`${url}tracks/${id}`)
                 .then(res => {
-                    Player(res.data, false)
+                    Player(res.data, playing)
                 })
             console.log("nice");
         }
@@ -137,15 +166,21 @@ function Player(info, isplay) {
             id = id - 1
             axios.get(`${url}tracks/${id}`)
                 .then(res => {
-                    Player(res.data, false)
+                    Player(res.data, playing)
                 })
             console.log("works");
         }
 
+        audio.onended = () => {
+            playing = !playing
+            play.src = "../images/play.svg" 
+        }
+
         // appending
 
+        audioDiv.append(audioLength)
         smth.append(artistNtitle, like)
-        bot.append(audio)
+        bot.append(audioDiv)
         playPause.append(play)
         top.append(repeat, prev, playPause, next, random)
         artistNtitle.append(title, artist)
@@ -155,6 +190,12 @@ function Player(info, isplay) {
         player.append(left, mid, right)
         place.append(player)
         place.append(player)
+
+        // avarege background color
+
+        
+        let back = getAverageRGB(image)
+        player.style.background = `linear-gradient(180deg, ${back} 20.09%, #121212 50.4%)`
     }
 }
 
