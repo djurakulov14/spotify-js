@@ -17,7 +17,6 @@ if(hours >= 18){
     currentTime.innerHTML = "Доброе утро"
 }
 
-console.log(hours);
 
 
 axios.get(url + "playlists")

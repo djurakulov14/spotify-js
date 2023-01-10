@@ -649,6 +649,33 @@ main {
 				}
 			}
 		}
+		.bot{
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			.audio {
+				width: 350px;
+				height: 8px;
+				background-color: #5E5E5E;
+				border-radius: 50px;
+
+				&:hover{
+					background-color: #1ED760;
+					.audioLength{
+						height: 100%;
+						background-color: white;
+						border-radius: 50px;
+						width: 0;
+					}
+				}
+				.audioLength {
+					height: 100%;
+					background-color: white;
+					border-radius: 50px;
+					width: 0;
+				}
+			}
+		}
 	}
 }
 
@@ -804,27 +831,31 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 					}
 				}
 			}
-			.audio {
-				width: 350px;
-				height: 8px;
-				background-color: #5E5E5E;
-				border-radius: 50px;
-
-				&:hover{
-					background-color: #1ED760;
-					.audioLength::before{
-						content: '';
-						width: 12px;
-						height: 12px;
-						position: relative;
-						right: 0;
-					}
-				}
-				.audioLength {
-					height: 100%;
-					background-color: white;
+			.bot{
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				.audio {
+					width: 350px;
+					height: 8px;
+					background-color: #5E5E5E;
 					border-radius: 50px;
-					width: 0;
+	
+					&:hover{
+						background-color: #1ED760;
+						.audioLength{
+							height: 100%;
+							background-color: white;
+							border-radius: 50px;
+							width: 0;
+						}
+					}
+					.audioLength {
+						height: 100%;
+						background-color: white;
+						border-radius: 50px;
+						width: 0;
+					}
 				}
 			}
 		}

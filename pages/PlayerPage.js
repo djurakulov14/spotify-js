@@ -7,9 +7,6 @@ const url = "http://localhost:7777/"
 
 
 function Player(info, isplay) {
-    let num = 350 / 150
-
-    let now = 0
 
     if(info !== null) {
         let playing = isplay
@@ -41,6 +38,8 @@ function Player(info, isplay) {
         let audio = document.createElement('audio')
         let audioDiv = document.createElement('div')
         let audioLength = document.createElement('div')
+        let currTime = document.createElement('p')
+        let total = document.createElement('p')
 
         // for left
         let devices = document.createElement('img')
@@ -91,6 +90,8 @@ function Player(info, isplay) {
         volume.src = "../images/Volume.svg"
         audio.src = info?.url
         audio.setAttribute("controls", "controls")
+        total.innerHTML = "0:30"
+        currTime.innerHTML = "0:00"
 
 
         if(playing == false) {
@@ -158,19 +159,29 @@ function Player(info, isplay) {
         }
 
         audio.addEventListener('timeupdate', width)
-    
+        audioDiv.addEventListener('click', setProgress)
+
         function width(e) {
             const {duration, currentTime} = e.srcElement
             const progresspercent = (currentTime / duration) * 100
-            console.log(progresspercent);
             audioLength.style.width = `${progresspercent}%`
+            let curr = Math.round(currentTime) <= 9 ? "0" + Math.round(currentTime) : Math.round(currentTime)
+            currTime.innerHTML = "0:" + curr
+        }
+
+        function setProgress(e) {
+            const width = this.clientWidth
+            const clickX = e.offsetX
+            console.log(this.clientWidth, e.offsetX);
+            const duration = audio.duration
+            audio.currentTime = (clickX / width) * duration
         }
 
         // appending
 
         audioDiv.append(audioLength)
         smth.append(artistNtitle, like)
-        bot.append(audioDiv)
+        bot.append(currTime, audioDiv, total)
         playPause.append(play)
         top.append(repeat, prev, playPause, next, random)
         artistNtitle.append(title, artist)
