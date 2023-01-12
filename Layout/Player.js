@@ -5,6 +5,7 @@ let id = 0
 
 
 export function Player(info, isplay, fetch) {
+    place.innerHTML = ""
     if(info !== null) {
         let playing = isplay
         id = info.id
@@ -171,7 +172,7 @@ export function Player(info, isplay, fetch) {
 
         audioDiv.append(audioLength)
         toPage.append(image)
-        bot.append(currTime, audioDiv, total)
+        bot.append(currTime, audio, audioDiv, total)
         playPause.append(play)
         top.append(repeat, prev, playPause, next, random)
         artistNtitle.append(title, artist)
@@ -179,7 +180,6 @@ export function Player(info, isplay, fetch) {
         mid.append(top, bot)
         right.append(devices, queue, volume)
         player.append(left, mid, right)
-        place.append(player)
         place.append(player)
     }
 }

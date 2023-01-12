@@ -680,10 +680,7 @@ main {
 }
 
 audio {
-	height: 20px;
-	// color: white;
-	border: none;
-	width:500px;
+	display: none;
 }
 
 audio::-webkit-media-controls-panel {
@@ -754,11 +751,11 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 	left: 18%;
 	top: 80px;
 	width: 82%;
-
+	
 	.playerPages {
+		padding-top: 30px;
 		transition: 300ms ease;
 		width: 100%;
-		padding-top: 30px;
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);

@@ -172,6 +172,7 @@ function Player(info, isplay) {
         function setProgress(e) {
             const width = this.clientWidth
             const clickX = e.offsetX
+            console.log(width, clickX);
             console.log(this.clientWidth, e.offsetX);
             const duration = audio.duration
             audio.currentTime = (clickX / width) * duration
@@ -181,7 +182,7 @@ function Player(info, isplay) {
 
         audioDiv.append(audioLength)
         smth.append(artistNtitle, like)
-        bot.append(currTime, audioDiv, total)
+        bot.append(currTime, audio, audioDiv, total)
         playPause.append(play)
         top.append(repeat, prev, playPause, next, random)
         artistNtitle.append(title, artist)
