@@ -5,7 +5,9 @@ let id = 0
 
 
 export function Player(info, isplay, fetch) {
+    place.innerHTML = ""
     if(info !== null) {
+        let playing = isplay
         id = info.id
         localStorage.setItem("currentMusic", JSON.stringify(info))
         place.innerHTML = ''
@@ -32,6 +34,10 @@ export function Player(info, isplay, fetch) {
         let playPause = document.createElement('div')
         let play = document.createElement('img')
         let audio = document.createElement('audio')
+        let audioDiv = document.createElement('div')
+        let audioLength = document.createElement('div')
+        let currTime = document.createElement('p')
+        let total = document.createElement('p')
 
         // for left
         let devices = document.createElement('img')
@@ -61,6 +67,8 @@ export function Player(info, isplay, fetch) {
         devices.classList.add('devices')
         queue.classList.add('queue')
         volume.classList.add('volume')
+        audioDiv.classList.add("audio")
+        audioLength.classList.add("audioLength")
 
         // src and funcs
 
@@ -78,6 +86,9 @@ export function Player(info, isplay, fetch) {
         queue.src = "../images/Queue.svg"
         volume.src = "../images/Volume.svg"
         audio.src = info?.url
+        total.innerHTML = "0:30"
+        currTime.innerHTML = "0:00"
+
         audio.setAttribute("controls", "controls")
         if(typeof(fetch) == "function" || isplay == false) {
             audio.setAttribute("autoplay", "autoplay")
@@ -87,9 +98,9 @@ export function Player(info, isplay, fetch) {
         }
         
         playPause.onclick = () => {
-            isplay = !isplay
-            isplay ? play.src = "../images/pause.svg" : play.src = "../images/play.svg"
-            isplay ? audio.play() : audio.pause()
+            playing = !playing
+            playing ? play.src = "../images/play.svg" : play.src = "../images/pause.svg"
+            playing ? audio.pause() : audio.play()  
         }
         repeat.onclick = () => {
             repeat.classList.toggle("active")
@@ -135,11 +146,33 @@ export function Player(info, isplay, fetch) {
                 })
         }
 
+        audio.addEventListener('timeupdate', width)
+        audioDiv.addEventListener('click', setProgress)
+
+        function width(e) {
+            const {duration, currentTime} = e.srcElement
+            const progresspercent = (currentTime / duration) * 100
+            audioLength.style.width = `${progresspercent}%`
+            let curr = Math.round(currentTime) <= 9 ? "0" + Math.round(currentTime) : Math.round(currentTime)
+            currTime.innerHTML = "0:" + curr
+        }
+
+        function setProgress(e) {
+            const width = this.clientWidth
+            const clickX = e.offsetX
+            const duration = audio.duration
+            audio.currentTime = (clickX / width) * duration
+        }
+        audio.onended = () => {
+            playing = !playing
+            play.src = "../images/play.svg" 
+        }
+
         // appending
 
-
+        audioDiv.append(audioLength)
         toPage.append(image)
-        bot.append(audio)
+        bot.append(currTime, audio, audioDiv, total)
         playPause.append(play)
         top.append(repeat, prev, playPause, next, random)
         artistNtitle.append(title, artist)
@@ -147,7 +180,6 @@ export function Player(info, isplay, fetch) {
         mid.append(top, bot)
         right.append(devices, queue, volume)
         player.append(left, mid, right)
-        place.append(player)
         place.append(player)
     }
 }

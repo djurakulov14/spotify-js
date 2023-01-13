@@ -106,6 +106,8 @@ const reloadTrack = (arr, place, fetch, AddtoBG, Addto, blyat) => {
         }
         invisible.onclick = () => {
             Player(item, false, fetch)
+            raw.innerHTML = ""
+            raw.classList.add('active')
         }
     }
     
