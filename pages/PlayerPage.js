@@ -154,8 +154,11 @@ function Player(info, isplay) {
         }
 
         audio.onended = () => {
-            playing = !playing
-            play.src = "../images/play.svg" 
+            id = id + 1
+            axios.get(`${url}tracks/${id}`)
+                .then(res => {
+                    Player(res.data, playing)
+                })
         }
 
         audio.addEventListener('timeupdate', width)

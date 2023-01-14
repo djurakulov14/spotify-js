@@ -164,8 +164,11 @@ export function Player(info, isplay, fetch) {
             audio.currentTime = (clickX / width) * duration
         }
         audio.onended = () => {
-            playing = !playing
-            play.src = "../images/play.svg" 
+            id = id + 1
+            axios.get(`${url}tracks/${id}`)
+                .then(res => {
+                    Player(res.data, playing)
+                })
         }
 
         // appending
